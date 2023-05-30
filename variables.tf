@@ -64,7 +64,7 @@ variable "engine_image" {
 variable "port" {
 	type = number
 	description = "default server port"
-	default = 80
+	default = 8080
 }
 
 variable "server_cpu_cores" {

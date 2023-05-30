@@ -24,6 +24,11 @@ output "storage_account_connection_string" {
   value = azurerm_storage_account.storage_account.primary_connection_string
 }
 
+output "mssql_connection_string" {
+  sensitive = true
+  value = "Server=tcp:${azurerm_mssql_server.server.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.db.name};Persist Security Info=False;User ID=${azurerm_mssql_server.server.administrator_login};Password=${azurerm_mssql_server.server.administrator_login_password};Encrypt=True;TrustServerCertificate=False;"
+}
+
 output "container_group_endpoint" {
   value = azurerm_container_group.container_group.ip_address
 }
